@@ -1,20 +1,25 @@
-from datetime import datetime
+import datetime
 
 import jwt
+from django.http import HttpResponseRedirect
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import User
 from .serializers import UserSerializer
+from rest_framework import viewsets
+from .authentication import CustomUserAuthentication
 
 
 # Create your views here.
 class RegisterAPI(APIView):
     def post(self, request):
-        serializer = UserSerializer(request.data)
+        serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+        #return HttpResponseRedirect("/api/login/")
 
 
 class LoginAPI(APIView):
@@ -45,6 +50,7 @@ class LoginAPI(APIView):
         response.data = {"jwt": token}
 
         return response
+        #return HttpResponseRedirect("/api/dashboard/")
 
 
 class UserAPI(APIView):
@@ -70,3 +76,10 @@ class LogoutAPI(APIView):
         response.delete_cookie("jwt")
         response.data = {"message": "success"}
         return response
+
+
+#class DashboardAPI(APIView):
+#    authentication_classes = (CustomUserAuthentication, )
+#    permission_classes = (IsAuthenticated, )
+#    def get(self, request):
+#        return Response({"message": "dashboard"})
