@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: >
+            bash -c 
+            'python manage.py runserver 0.0.0.0:8000 &&
+            ./manage.py migrate'
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
