@@ -1,7 +1,11 @@
 import datetime
 
 import jwt
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
+from django.views import View
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -19,7 +23,6 @@ class RegisterAPI(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
-        #return HttpResponseRedirect("/api/login/")
 
 
 class LoginAPI(APIView):
@@ -50,7 +53,6 @@ class LoginAPI(APIView):
         response.data = {"jwt": token}
 
         return response
-        #return HttpResponseRedirect("/api/dashboard/")
 
 
 class UserAPI(APIView):
@@ -78,8 +80,9 @@ class LogoutAPI(APIView):
         return response
 
 
-#class DashboardAPI(APIView):
-#    authentication_classes = (CustomUserAuthentication, )
-#    permission_classes = (IsAuthenticated, )
-#    def get(self, request):
-#        return Response({"message": "dashboard"})
+class DashboardAPI(APIView):
+    authentication_classes = (CustomUserAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        return Response({"message": "dashboard"})
