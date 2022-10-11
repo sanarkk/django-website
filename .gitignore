@@ -102,6 +102,10 @@ __pycache__
 db.sqlite3
 media
 
+# Django settings #
+/core/settings/dev.py
+/core/settings/prod.py
+
 # Backup files #
 *.bak
 
