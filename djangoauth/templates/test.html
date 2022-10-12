@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-{% load static %}
+{% load socialaccount %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}" />
-</head>
-<body>
-    <h1>It is a login page</h1>
-</body>
-</html>
+<h1>Django Allauth Tutorial</h1>
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username }} !!!</p>
+{% else %}
+    <h1>Register</h1>
+{% endif %}
