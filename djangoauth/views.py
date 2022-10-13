@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from allauth.account.views import SignupView
 from django.views.generic import TemplateView
+
+from .forms import CustomSignupForm
 
 
 # Create your views here.
-
-
-def index(request):
-    return render(request, "test.html", {})
-
-
 class Home(TemplateView):
-    template_name = 'test.html'
+    template_name = "home_page.html"
+
+
+class MainPage(TemplateView):
+    template_name = "main_page.html"
+
+
+class CustomSignupView(SignupView):
+    form_class = CustomSignupForm

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    'django.utils.translation',
     "rest_framework",
     "djangoauth",
     # django all-auth
@@ -142,9 +143,10 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_EMAIL_VERIFICATION = True
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/home/"
