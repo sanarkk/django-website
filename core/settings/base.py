@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    'django.utils.translation',
+    "django.utils.translation",
     "rest_framework",
     "djangoauth",
     # django all-auth
@@ -48,8 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware."
-    "security.SecurityMiddleware",
+    "django.middleware." "security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -144,7 +143,7 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True

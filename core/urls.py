@@ -21,7 +21,7 @@ from djangoauth.views import MainPage
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('home/', include('djangoauth.urls')),
-    path('', MainPage.as_view(), name="main_page"),
+    path("home/", include("djangoauth.urls")),
+    path("", MainPage.as_view(), name="main_page"),
 ]
 urlpatterns += staticfiles_urlpatterns()
