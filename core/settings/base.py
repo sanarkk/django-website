@@ -41,11 +41,14 @@ INSTALLED_APPS = [
     "django.utils.translation",
     "rest_framework",
     "djangoauth",
+    'crispy_forms',
     # django all-auth
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "django.middleware." "security.SecurityMiddleware",
