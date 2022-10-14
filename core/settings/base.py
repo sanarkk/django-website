@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     "django.utils.translation",
     "rest_framework",
     "djangoauth",
-    'crispy_forms',
+    "crispy_forms",
     # django all-auth
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware." "security.SecurityMiddleware",
@@ -151,4 +151,4 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True
 
-LOGIN_REDIRECT_URL = "/home/"
+LOGIN_REDIRECT_URL = "/dashboard/"

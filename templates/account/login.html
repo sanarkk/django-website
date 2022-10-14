@@ -20,6 +20,16 @@
 
                 {{ form|crispy }}
 
+                {% if form.errors %}
+                  <div class="alert alert-error">
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
                 <div class="field">
                   <input value='Login' type="submit" class="button is-success">
                 </div>
