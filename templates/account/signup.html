@@ -30,7 +30,7 @@
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <div class="field">
-                  <input value='Sign up' type="submit" class="button is-success">
+                    <input value='Sign up' type="submit" class="button is-success">
                 </div>
                 <div class="field">
                   Already registered ? <a href="{% url 'account_login' %}">Login</a>
@@ -43,5 +43,6 @@
         </div>
       </div>
     </section>
+
 
 {% endblock %}

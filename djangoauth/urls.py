@@ -1,10 +1,10 @@
 from django.urls import path, re_path
-from .views import Home, CustomSignupView
+from .views import DashboardView, CustomSignupView
 from allauth.account import views
 
 
 urlpatterns = [
-    path("", Home.as_view(), name="home"),
+    path("dashboard/", DashboardView.as_view(), name="dashboard"),
     path("login/", views.login, name="account_login"),
     path("logout/", views.logout, name="account_logout"),
     path("signup/", CustomSignupView.as_view(), name="account_signup"),
