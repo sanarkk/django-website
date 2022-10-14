@@ -1,10 +1,3 @@
 {% extends "main_page.html" %}
 
 {% load socialaccount %}
-
-<h1>Django Allauth Tutorial</h1>
-{% if user.is_authenticated %}
-<p style="font-size: 90px;">Welcome {{ user.username }} !!!</p>
-{% else %}
-    <h1>Register</h1>
-{% endif %}
