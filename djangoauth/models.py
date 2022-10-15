@@ -14,4 +14,4 @@ class UserProfile(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.user
+        return f'{self.first_name} | {self.last_name}'
