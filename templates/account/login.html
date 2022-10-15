@@ -15,11 +15,8 @@
             <div class="column is-5-tablet is-4-desktop is-3-widescreen">
               <form class="login box" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-
                 <h1 class="has-text-centered mb-5 is-size-3">Login</h1>
-
                 {{ form|crispy }}
-
                 {% if form.errors %}
                   <div class="alert alert-error">
                     <ul>
@@ -29,21 +26,17 @@
                     </ul>
                   </div>
                 {% endif %}
-
                 <div class="field">
                   <input value='Login' type="submit" class="button is-success">
                 </div>
-
                 <div class="field">
                   Not registered ? <a href="{% url 'account_signup' %}">Register</a>
                 </div>
-
               </form>
-
             </div>
           </div>
         </div>
       </div>
-    </section>
+ </section>
 
 {% endblock %}

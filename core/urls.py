@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from djangoauth.views import MainPage
+from djangoauth.views import MainPageView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("djangoauth.urls")),
-    path("", MainPage.as_view(), name="main_page"),
+    path("", MainPageView.as_view(), name="main_page"),
 ]
 urlpatterns += staticfiles_urlpatterns()
