@@ -11,11 +11,9 @@
         <div class="container">
           <div class="columns is-centered">
             <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-
               <form class="signup box" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                 <h1 class="has-text-centered mb-5 is-size-3">Signup</h1>
-
                 {{ form|crispy }}
                 {% if form.errors %}
                   <div class="alert alert-error">
@@ -35,14 +33,10 @@
                 <div class="field">
                   Already registered ? <a href="{% url 'account_login' %}">Login</a>
                 </div>
-
               </form>
-
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-
+ </section>
 {% endblock %}

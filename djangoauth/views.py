@@ -1,6 +1,4 @@
 from allauth.account.views import SignupView
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 from braces.views import LoginRequiredMixin
 
@@ -18,7 +16,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return self.render_to_response({})
 
 
-class MainPage(TemplateView):
+class MainPageView(TemplateView):
     template_name = "main_page.html"
 
 
