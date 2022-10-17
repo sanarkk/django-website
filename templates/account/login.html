@@ -2,36 +2,35 @@
 
 {% load i18n %}
 {% load account socialaccount %}
-{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-
-<div class="i-am-centered">
-  <form class="box" method="POST" action="{% url 'account_login' %}">
+<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-dark rounded">
+  <h1 class="text-center">Login</h1>
+  <form class="p-2" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
 
-      <div class="form-group">
-        <label>Email address</label>
-        {{ form.login }}<br>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <div class="row">
+          <div class="col">
+            <input type="email" name="login" class="form-control" placeholder="Email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
       </div>
 
       <br>
-      <div class="form-group">
-        <label>Password</label>
-          {{ form.password }}
+
+      <div class="row">
+        <div class="col">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
       </div>
 
       {% if form.errors %}
-        <div class="alert alert-error">
-          <ul>
-            {% for error in form.non_field_errors %}
-              <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
+      <br>
+        <div class="alert alert-danger" role="alert">
+          {{ form.errors }}
         </div>
       {% endif %}
 
@@ -39,14 +38,16 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
 
-      <div class="field">
-        <input value='Login' type="submit" class="btn btn-primary">
+      <br>
+      <div class="row">
+        <div class="col">
+          <input value='Login' type="submit" class="btn btn-primary">
+        </div>
       </div>
 
-      <div class="field">
-        Not registered ? <a href="{% url 'account_signup' %}">Register</a>
-      </div>
+      <h5>
+        Not registered ? <a class="badge bg-secondary" href="{% url 'account_signup' %}">Register</a>
+      </h5>
     </form>
 </div>
-
 {% endblock %}
