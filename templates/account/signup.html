@@ -6,6 +6,16 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+</form>
  <section class="hero is-dark is-fullheight">
       <div class="hero-body">
         <div class="container">
@@ -14,7 +24,7 @@
               <form class="signup box" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                 <h1 class="has-text-centered mb-5 is-size-3">Signup</h1>
-                {{ form|crispy }}
+                {{ form.first_name }}
                 {% if form.errors %}
                   <div class="alert alert-error">
                     <ul>

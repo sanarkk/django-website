@@ -8,35 +8,45 @@
 
 {% block content %}
 
- <section class="hero is-dark is-fullheight">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns is-centered">
-            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-              <form class="login box" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                <h1 class="has-text-centered mb-5 is-size-3">Login</h1>
-                {{ form|crispy }}
-                {% if form.errors %}
-                  <div class="alert alert-error">
-                    <ul>
-                        {% for error in form.non_field_errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                  </div>
-                {% endif %}
-                <div class="field">
-                  <input value='Login' type="submit" class="button is-success">
-                </div>
-                <div class="field">
-                  Not registered ? <a href="{% url 'account_signup' %}">Register</a>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+
+<div class="i-am-centered">
+  <form class="box" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label>Email address</label>
+        {{ form.login }}<br>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
- </section>
+
+      <br>
+      <div class="form-group">
+        <label>Password</label>
+          {{ form.password }}
+      </div>
+
+      {% if form.errors %}
+        <div class="alert alert-error">
+          <ul>
+            {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div class="field">
+        <input value='Login' type="submit" class="btn btn-primary">
+      </div>
+
+      <div class="field">
+        Not registered ? <a href="{% url 'account_signup' %}">Register</a>
+      </div>
+    </form>
+</div>
 
 {% endblock %}

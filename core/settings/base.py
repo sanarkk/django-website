@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.utils.translation",
-    "rest_framework",
     "djangoauth",
     "crispy_forms",
     # django all-auth
@@ -150,5 +149,8 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 LOGIN_REDIRECT_URL = "/dashboard/"

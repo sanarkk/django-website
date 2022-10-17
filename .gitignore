@@ -103,7 +103,7 @@ db.sqlite3
 media
 
 # Django settings #
-/core/settings/dev.py
+/core/settings/local.py
 /core/settings/prod.py
 
 # Backup files #
