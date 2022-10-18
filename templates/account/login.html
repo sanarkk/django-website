@@ -15,6 +15,12 @@
       <div class="row">
           <div class="col">
             <input type="email" name="login" class="form-control" placeholder="Email">
+            {% if form.login.errors%}
+            <br>
+            <div class="alert alert-danger" role="alert">
+              <p>Email is required.</p>
+            </div>
+            {% endif %}
           </div>
       </div>
 
@@ -23,15 +29,15 @@
       <div class="row">
         <div class="col">
           <input type="password" name="password" class="form-control" placeholder="Password">
+          {% if form.password.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.password.errors }}
+          </div>
+          {% endif %}
         </div>
       </div>
       <br>
-
-      {% if form.errors %}
-        <div class="alert alert-danger" role="alert">
-          {{ form.errors }}
-        </div>
-      {% endif %}
 
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

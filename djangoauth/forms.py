@@ -2,6 +2,7 @@ from allauth.account.forms import SignupForm
 from django.utils.translation import gettext_lazy
 from django import forms
 from .models import UserProfile
+from django.core.validators import RegexValidator
 
 
 class CustomSignupForm(SignupForm):
@@ -18,8 +19,13 @@ class CustomSignupForm(SignupForm):
         required=True,
     )
     phone_number = forms.CharField(
-        max_length=40,
-        required=True,
+        max_length=15,
+        validators=[
+            RegexValidator(
+                r'^\+?1?\d{9,15}$',
+                message="Enter a Valid Phone Number",
+            )
+        ],
     )
     password1 = forms.CharField(
         max_length=40,
