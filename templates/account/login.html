@@ -7,15 +7,14 @@
 
 {% block content %}
 
-<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-dark rounded">
-  <h1 class="text-center">Login</h1>
+<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
+  <h1 class="text-center" style="margin-top: 20px;">Login</h1>
   <form class="p-2" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
 
       <div class="row">
           <div class="col">
             <input type="email" name="login" class="form-control" placeholder="Email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
       </div>
 
@@ -26,9 +25,9 @@
           <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
       </div>
+      <br>
 
       {% if form.errors %}
-      <br>
         <div class="alert alert-danger" role="alert">
           {{ form.errors }}
         </div>
@@ -38,16 +37,15 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
 
-      <br>
-      <div class="row">
+      <div style="margin-bottom: 10px;" class="row">
         <div class="col">
           <input value='Login' type="submit" class="btn btn-primary">
         </div>
       </div>
 
-      <h5>
-        Not registered ? <a class="badge bg-secondary" href="{% url 'account_signup' %}">Register</a>
-      </h5>
+      <h6>
+        Not registered ? <a class="text-secondary" href="{% url 'account_signup' %}">Register</a>
+      </h6>
     </form>
 </div>
 {% endblock %}
