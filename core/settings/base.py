@@ -155,3 +155,5 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 
 LOGIN_REDIRECT_URL = "/"
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

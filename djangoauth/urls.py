@@ -1,11 +1,11 @@
 from django.urls import path, re_path
-from .views import DashboardView, CustomSignupView
+from .views import DashboardView, CustomSignupView, CustomLoginView
 from allauth.account import views
 
 
 urlpatterns = [
     path("dashboard/", DashboardView.as_view(), name="dashboard"),
-    path("login/", views.login, name="account_login"),
+    path("login/", CustomLoginView.as_view(), name="account_login"),
     path("logout/", views.logout, name="account_logout"),
     path("signup/", CustomSignupView.as_view(), name="account_signup"),
     path(
