@@ -6,37 +6,102 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
- <section class="hero is-dark is-fullheight">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns is-centered">
-            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-              <form class="signup box" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                {% csrf_token %}
-                <h1 class="has-text-centered mb-5 is-size-3">Signup</h1>
-                {{ form|crispy }}
-                {% if form.errors %}
-                  <div class="alert alert-error">
-                    <ul>
-                        {% for error in form.non_field_errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                  </div>
-                {% endif %}
-                {% if redirect_field_value %}
-                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <div class="field">
-                    <input value='Sign up' type="submit" class="button is-success">
-                </div>
-                <div class="field">
-                  Already registered ? <a href="{% url 'account_login' %}">Login</a>
-                </div>
-              </form>
-            </div>
+ <div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
+  <h1 class="text-center" style="margin-top: 20px;">Sign up</h1>
+  <form class="p-2" method="POST" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="col">
+          <input type="text" name="first_name" class="form-control" placeholder="First name">
+          {% if form.first_name.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.first_name.errors }}
           </div>
+          {% endif %}
         </div>
       </div>
- </section>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="text" name="last_name" class="form-control" placeholder="Last name">
+          {% if form.last_name.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.last_name.errors }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="email" name="email" class="form-control" placeholder="Email">
+          {% if form.email.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.email.errors }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="text" name="phone_number" class="form-control" placeholder="Phone number">
+          {% if form.phone_number.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.phone_number.errors }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="password" name="password1" class="form-control" placeholder="Password">
+          {% if form.password1.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.password1.errors }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="password" name="password2" class="form-control" placeholder="Password(again)">
+          {% if form.password2.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.password2.errors }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div style="margin-bottom: 10px;" class="row">
+        <div class="col">
+          <input value='Sign up' type="submit" class="btn btn-primary">
+        </div>
+      </div>
+      <h6>
+        Already registered ? <a class="text-secondary" href="{% url 'account_login' %}">Login</a>
+      </h6>
+    </form>
+</div>
+{{ form.as_p }}
 {% endblock %}

@@ -2,41 +2,56 @@
 
 {% load i18n %}
 {% load account socialaccount %}
-{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
- <section class="hero is-dark is-fullheight">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns is-centered">
-            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-              <form class="login box" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                <h1 class="has-text-centered mb-5 is-size-3">Login</h1>
-                {{ form|crispy }}
-                {% if form.errors %}
-                  <div class="alert alert-error">
-                    <ul>
-                        {% for error in form.non_field_errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                  </div>
-                {% endif %}
-                <div class="field">
-                  <input value='Login' type="submit" class="button is-success">
-                </div>
-                <div class="field">
-                  Not registered ? <a href="{% url 'account_signup' %}">Register</a>
-                </div>
-              </form>
+<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
+  <h1 class="text-center" style="margin-top: 20px;">Login</h1>
+  <form class="p-2" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+
+      <div class="row">
+          <div class="col">
+            <input type="email" name="login" class="form-control" placeholder="Email">
+            {% if form.login.errors%}
+            <br>
+            <div class="alert alert-danger" role="alert">
+              <p>Email is required.</p>
             </div>
+            {% endif %}
           </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+          {% if form.password.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {{ form.password.errors }}
+          </div>
+          {% endif %}
         </div>
       </div>
- </section>
+      <br>
 
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div style="margin-bottom: 10px;" class="row">
+        <div class="col">
+          <input value='Login' type="submit" class="btn btn-primary">
+        </div>
+      </div>
+
+      <h6>
+        Not registered ? <a class="text-secondary" href="{% url 'account_signup' %}">Register</a>
+      </h6>
+    </form>
+</div>
 {% endblock %}
