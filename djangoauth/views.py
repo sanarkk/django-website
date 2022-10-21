@@ -26,4 +26,4 @@ class CustomSignupView(SuccessMessageMixin, SignupView):
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
-    success_message = 'Successfully login.'
+    success_message = "Successfully login."
