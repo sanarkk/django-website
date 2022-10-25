@@ -1,7 +1,8 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from .models import UserProfile, Languages
+from .models import UserProfile
 from django.core.validators import RegexValidator
+from core.settings.base import LANGUAGES
 from django.contrib.auth.models import User
 
 
@@ -14,10 +15,9 @@ class CustomSignupForm(SignupForm):
         max_length=40,
         required=True,
     )
-    email = forms.CharField(
-        max_length=40,
-        required=True,
-    )
+
+    email = forms.EmailField()
+
     phone_number = forms.CharField(
         max_length=15,
         validators=[
@@ -27,16 +27,14 @@ class CustomSignupForm(SignupForm):
             )
         ],
     )
-    password1 = forms.CharField(
-        max_length=40,
-        required=True,
-    )
-    password2 = forms.CharField(
-        max_length=40,
-        required=True,
-    )
+
+    language = forms.ChoiceField(choices=LANGUAGES)
 
     def save(self, request):
         user = super().save(request)
-        p, _ = UserProfile.objects.get_or_create(user=user)
+        phone_number = self.cleaned_data["phone_number"]
+        language = self.cleaned_data["language"]
+        p, _ = UserProfile.objects.get_or_create(
+            user=user, phone_number=phone_number, language=language
+        )
         return user
