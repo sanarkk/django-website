@@ -1,18 +1,9 @@
 from django.utils import translation
+from django.utils.deprecation import MiddlewareMixin
 
 
-class LocaleMiddleware(object):
-    def __init__(self, get_response):
-        self.get_response = get_response
-
-    def __call__(self, request):
-
-        language_code = request.LANGUAGE_CODE
-
-        translation.activate(language_code)
-
-        response = self.get_response(request)
-
-        translation.deactivate()
-
-        return response
+class CustomLocaleMiddleware(MiddlewareMixin):
+    def process_request(self, request):
+        if request.user.is_authenticated:
+            translation.activate(request.user.user_profile.language)
+            request.LANGUAGE_CODE = request.user.user_profile.language

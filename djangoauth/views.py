@@ -21,10 +21,6 @@ class MainPageView(TemplateView):
     template_name = "main_page.html"
 
 
-class SwitcherView(TemplateView):
-    template_name = "switcher.html"
-
-
 class CustomSignupView(SuccessMessageMixin, SignupView):
     form_class = CustomSignupForm
 

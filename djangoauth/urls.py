@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from .views import DashboardView, CustomSignupView, CustomLoginView, SwitcherView
+from .views import DashboardView, CustomSignupView, CustomLoginView
 from allauth.account import views
 
 
@@ -15,7 +15,6 @@ urlpatterns = [
     ),
     # E-mail
     path("email/", views.email, name="account_email"),
-    path("switcher/", SwitcherView.as_view(), name="switcher"),
     path(
         "confirm-email/",
         views.email_verification_sent,
