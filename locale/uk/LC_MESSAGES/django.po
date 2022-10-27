@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 17:13+0000\n"
-"PO-Revision-Date: 2022-10-27 20:55+0000\n"
+"POT-Creation-Date: 2022-10-27 21:26+0000\n"
+"PO-Revision-Date: 2022-10-27 21:32+0000\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,17 +19,57 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: djangoauth/templates/switcher.html:18
-msgid "Have a good day"
-msgstr "Гарного дня!"
+#: djangoauth/templates/main_page.html:27
+msgid "Dashboard"
+msgstr "Панель"
 
-#: djangoauth/views.py:33
+#: djangoauth/templates/main_page.html:30
+msgid "Blog"
+msgstr "Блог"
+
+#: djangoauth/templates/main_page.html:33
+msgid "Contact"
+msgstr "Контакт"
+
+#: djangoauth/templates/main_page.html:36 templates/account/logout.html:9
+msgid "Sign out"
+msgstr "Вийти"
+
+#: djangoauth/templates/main_page.html:40
+#| msgid "Sign In"
+msgid "Sign in"
+msgstr "Увійти"
+
+#: djangoauth/templates/main_page.html:43 templates/account/signup.html:10
+#: templates/account/signup.html:105
+#| msgid "Signup"
+msgid "Sign up"
+msgstr "Зареєструватись"
+
+#: djangoauth/views.py:29
 msgid "Successfully login."
-msgstr "Успішно увійшли в аккаунт."
+msgstr "Успішно увійшли в аккаунт"
 
 #: templates/account/login.html:6
 msgid "Sign In"
 msgstr "Увійти"
+
+#: templates/account/login.html:11 templates/account/login.html:48
+#: templates/account/signup.html:109
+msgid "Login"
+msgstr "Увійти"
+
+#: templates/account/login.html:21
+msgid "Email is required"
+msgstr "Емейл обовязковий до заповнення"
+
+#: templates/account/login.html:53
+msgid "Not registered ?"
+msgstr "Не зареєстровані ?"
+
+#: templates/account/login.html:53
+msgid "Register"
+msgstr "Зареєструватись"
 
 #: templates/account/logout.html:5
 msgid "Sign Out"
@@ -37,7 +77,12 @@ msgstr "Вийти"
 
 #: templates/account/logout.html:13
 msgid "Are you sure you want to sign out?"
-msgstr "Ви впевнені що хочете вийти."
+msgstr "Ви впевнені що хочете вийти?"
+
+#: templates/account/logout.html:21
+#| msgid "Sign Out"
+msgid "Log out"
+msgstr "Вийти"
 
 #: templates/account/password_set.html:5 templates/account/password_set.html:8
 #: templates/account/password_set.html:12
@@ -47,3 +92,17 @@ msgstr "Встановити пароль"
 #: templates/account/signup.html:6
 msgid "Signup"
 msgstr "Зареєструватись"
+
+#: templates/account/signup.html:109
+msgid "Already registered ?"
+msgstr "Уже зареєстровані?"
+
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:130
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:140
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:91
+#| msgid "Email is required"
+msgid "This field is required."
+msgstr "Емейл обовязковий до заповнення"
+
+#~ msgid "Have a good day"
+#~ msgstr "Гарного дня!"
