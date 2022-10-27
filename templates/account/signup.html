@@ -89,6 +89,13 @@
       </div>
       <br>
 
+      <div class="row">
+        <div class="col">
+            {{ form.language }}
+        </div>
+      </div>
+      <br>
+
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
@@ -103,5 +110,4 @@
       </h6>
     </form>
 </div>
-{{ form.as_p }}
 {% endblock %}
