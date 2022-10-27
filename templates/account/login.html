@@ -8,7 +8,7 @@
 {% block content %}
 
 <div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
-  <h1 class="text-center" style="margin-top: 20px;">Login</h1>
+  <h1 class="text-center" style="margin-top: 20px;">{% trans 'Login' %}</h1>
   <form class="p-2" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
 
@@ -18,7 +18,7 @@
             {% if form.login.errors%}
             <br>
             <div class="alert alert-danger" role="alert">
-              <p>Email is required.</p>
+              <p>{% trans 'Email is required' %}</p>
             </div>
             {% endif %}
           </div>
@@ -32,7 +32,7 @@
           {% if form.password.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.password.errors }}
+            {% trans form.password.errors %}
           </div>
           {% endif %}
         </div>
@@ -45,12 +45,12 @@
 
       <div style="margin-bottom: 10px;" class="row">
         <div class="col">
-          <input value='Login' type="submit" class="btn btn-primary">
+          <input value="{% trans 'Login' %}" type="submit" class="btn btn-primary">
         </div>
       </div>
 
       <h6>
-        Not registered ? <a class="text-secondary" href="{% url 'account_signup' %}">Register</a>
+        {% trans 'Not registered ?' %} <a class="text-secondary" href="{% url 'account_signup' %}">{% trans 'Register' %}</a>
       </h6>
     </form>
 </div>

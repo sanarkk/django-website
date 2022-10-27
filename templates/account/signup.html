@@ -3,11 +3,11 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}{% trans "Sign up" %}{% endblock %}
 
 {% block content %}
  <div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
-  <h1 class="text-center" style="margin-top: 20px;">Sign up</h1>
+  <h1 class="text-center" style="margin-top: 20px;">{% trans 'Sign up' %}</h1>
   <form class="p-2" method="POST" action="{% url 'account_signup' %}">
       {% csrf_token %}
 
@@ -17,7 +17,7 @@
           {% if form.first_name.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.first_name.errors }}
+            {% trans form.first_name.errors %}
           </div>
           {% endif %}
         </div>
@@ -30,7 +30,7 @@
           {% if form.last_name.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.last_name.errors }}
+            {% trans form.last_names.errors %}
           </div>
           {% endif %}
         </div>
@@ -43,7 +43,7 @@
           {% if form.email.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.email.errors }}
+            {% trans form.email.errors %}
           </div>
           {% endif %}
         </div>
@@ -56,7 +56,7 @@
           {% if form.phone_number.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.phone_number.errors }}
+            {% trans form.phone_number.errors %}
           </div>
           {% endif %}
         </div>
@@ -69,7 +69,7 @@
           {% if form.password1.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.password1.errors }}
+            {% trans form.password1.errors %}
           </div>
           {% endif %}
         </div>
@@ -82,7 +82,7 @@
           {% if form.password2.errors%}
           <br>
           <div class="alert alert-danger" role="alert">
-            {{ form.password2.errors }}
+            {% trans form.password2.errors %}
           </div>
           {% endif %}
         </div>
@@ -102,11 +102,11 @@
 
       <div style="margin-bottom: 10px;" class="row">
         <div class="col">
-          <input value='Sign up' type="submit" class="btn btn-primary">
+          <input value="{% trans 'Sign up' %}" type="submit" class="btn btn-primary">
         </div>
       </div>
       <h6>
-        Already registered ? <a class="text-secondary" href="{% url 'account_login' %}">Login</a>
+        {% trans 'Already registered ?' %} <a class="text-secondary" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
       </h6>
     </form>
 </div>
