@@ -24,6 +24,7 @@ urlpatterns = [
     path("auth/", include("djangoauth.urls")),
     path("", MainPageView.as_view(), name="main_page"),
     path("i18n/", include("django.conf.urls.i18n")),
+    path("order/", include("food_order.urls")),
 ]
 urlpatterns += staticfiles_urlpatterns()
 
