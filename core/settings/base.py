@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "widget_tweaks",
     "rosetta",
+    "food_order",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
