@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "rosetta",
     "food_order",
+    "user_profile",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

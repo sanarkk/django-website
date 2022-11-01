@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("djangoauth.urls")),
     path("", MainPageView.as_view(), name="main_page"),
+    path('user_profile/', include("user_profile.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
     path("order/", include("food_order.urls")),
 ]
