@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from core.settings import base
 from djangoauth.views import MainPageView
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,6 +29,7 @@ urlpatterns = [
     path("order/", include("food_order.urls")),
 ]
 urlpatterns += staticfiles_urlpatterns()
-
+urlpatterns += static(base.STATIC_URL, document_root=base.STATIC_ROOT)
+urlpatterns += static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)
 if "rosetta" in base.INSTALLED_APPS:
     urlpatterns += [re_path(r"^rosetta/", include("rosetta.urls"))]

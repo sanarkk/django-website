@@ -13,3 +13,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, **kwargs):
         return self.render_to_response({})
+
+
+class UploadPhotoView(LoginRequiredMixin, TemplateView):
+    template_name = ""
