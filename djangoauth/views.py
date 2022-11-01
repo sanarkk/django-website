@@ -7,14 +7,6 @@ from core.settings import base
 from django.utils.translation import gettext_lazy as _
 
 # Create your views here.
-class DashboardView(LoginRequiredMixin, TemplateView):
-    template_name = "dashboard.html"
-
-    login_url = "/login/"
-    raise_exception = True
-
-    def get(self, request, **kwargs):
-        return self.render_to_response({})
 
 
 class MainPageView(TemplateView):
