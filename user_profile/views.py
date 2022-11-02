@@ -2,6 +2,8 @@ from braces.views import LoginRequiredMixin
 from django.views.generic import TemplateView
 from core.settings.base import STATICFILES_DIRS, STATIC_URL, STATIC_ROOT
 from djangoauth.models import UserProfile
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.models import User
 # Create your views here
 
 
@@ -18,5 +20,15 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         return self.render_to_response({})
 
 
-class UploadPhotoView(LoginRequiredMixin, TemplateView):
-    template_name = ""
+class UpdateProfile(LoginRequiredMixin, UpdateView):
+    model = UserProfile
+    template_name = 'user_profile/update_profile.html'
+
+    fields = [
+        #'first_name',
+        #'last_name',
+        'avatar',
+        'phone_number',
+    ]
+
+    success_url = '/'
