@@ -56,7 +56,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 MIDDLEWARE = [
     "django.middleware." "security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    #"django.middleware.locale.LocaleMiddleware",
+    # "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -135,22 +135,24 @@ USE_L10N = True
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
 
-LOCALE_PATHS = ( os.path.join(SITE_ROOT, 'locale'), )
+LOCALE_PATHS = (os.path.join(SITE_ROOT, "locale"),)
 
 LANGUAGES = (
-    ('en-us', ('English')),
-    ('uk', ('Ukrainian')),
+    ("en-us", ("English")),
+    ("uk", ("Ukrainian")),
 )
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = ""
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_URL = '/media/'
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = "/media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -174,5 +176,3 @@ ACCOUNT_USERNAME_REQUIRED = False
 LOGIN_REDIRECT_URL = "/"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-
-

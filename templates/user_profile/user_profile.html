@@ -1,6 +1,7 @@
 {% extends "main_page.html" %}
 
 {% load socialaccount %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -14,7 +15,7 @@
   <tbody>
       <tr>
       <th scope="row">First name:</th>
-      <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
+        <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
     </tr>
     <tr>
     <tr>
