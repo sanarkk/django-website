@@ -5,9 +5,45 @@
 {% load i18n %}
 {% block content %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
+  <h1 class="text-center" style="margin-top: 20px;">{% trans 'Update profile' %}</h1>
+  <form class="p-2" method="POST" action="{% url 'account_update' user.user_profile.id %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row">
+          <div class="col">
+            <label for="id_avatar">Avatar:</label>
+              <br>
+              <img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}">
+              <br>
+              <br>
+              <label class="form-label" for="customFile">Update image</label>
+              <input type="file" class="form-control" id="customFile" name="avatar"/>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+            Update phone number:
+          <input type="text" value="{{ user.user_profile.phone_number }}" name="phone_number" class="form-control" placeholder="Phone number">
+          {% if form.phone_number.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {% trans form.phone_number.errors %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div style="margin-bottom: 10px;" class="row">
+        <div class="col">
+          <input value="{% trans 'Update' %}" type="submit" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+</div>
 {% endblock %}

@@ -14,7 +14,7 @@
   </thead>
   <tbody>
       <tr>
-      <th scope="row">First name:</th>
+      <th scope="row">Avatar:</th>
         <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
     </tr>
     <tr>
@@ -43,5 +43,6 @@
     </tr>
   </tbody>
 </table>
-<a href="{% url 'account_update' user.id %}">Update profile</a>
+<a href="{% url 'account_update' user.user_profile.pk %}">Update profile</a>
+<p>{{user.id}}</p>
 {% endblock %}
