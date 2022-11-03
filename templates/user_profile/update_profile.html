@@ -11,19 +11,19 @@
       {% csrf_token %}
       <div class="row">
           <div class="col">
-            <label for="id_avatar">Avatar:</label>
+            <label for="id_avatar">{% trans 'Avatar' %}:</label>
               <br>
               <img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}">
               <br>
               <br>
-              <label class="form-label" for="customFile">Update image</label>
+              <label class="form-label" for="customFile">{% trans 'Update image' %}</label>
               <input type="file" class="form-control" id="customFile" name="avatar"/>
           </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
-            Update phone number:
+            {% trans 'Update phone number' %}:
           <input type="text" value="{{ user.user_profile.phone_number }}" name="phone_number" class="form-control" placeholder="Phone number">
           {% if form.phone_number.errors%}
           <br>
