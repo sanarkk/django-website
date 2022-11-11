@@ -2,15 +2,14 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.contrib.auth.models import User
 from core.settings.base import LANGUAGES, LANGUAGE_CODE
+from django_resized import ResizedImageField
+from core.settings import base
 
 
 # Create your models here.
 
 
-
-
 class UserProfile(models.Model):
-
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="user_profile"
     )
@@ -26,8 +25,14 @@ class UserProfile(models.Model):
         ],
     )
 
-    language = models.CharField(
-        choices=LANGUAGES, default=LANGUAGE_CODE, max_length=10
+    language = models.CharField(choices=LANGUAGES, default=LANGUAGE_CODE, max_length=10)
+
+    avatar = ResizedImageField(
+        size=[150, 150],
+        upload_to="avatars",
+        blank=True,
+        null=True,
+        default="default.jpg",
     )
 
     objects = models.Manager()
