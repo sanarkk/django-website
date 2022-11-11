@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-27 21:26+0000\n"
-"PO-Revision-Date: 2022-10-27 21:32+0000\n"
-"Last-Translator:   <admin@admin.com>\n"
+"POT-Creation-Date: 2022-11-05 15:06+0000\n"
+"PO-Revision-Date: 2022-11-05 15:11+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,34 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: djangoauth/templates/main_page.html:27
-msgid "Dashboard"
-msgstr "Панель"
-
-#: djangoauth/templates/main_page.html:30
-msgid "Blog"
-msgstr "Блог"
-
-#: djangoauth/templates/main_page.html:33
-msgid "Contact"
-msgstr "Контакт"
-
-#: djangoauth/templates/main_page.html:36 templates/account/logout.html:9
-msgid "Sign out"
-msgstr "Вийти"
-
-#: djangoauth/templates/main_page.html:40
-#| msgid "Sign In"
-msgid "Sign in"
-msgstr "Увійти"
-
-#: djangoauth/templates/main_page.html:43 templates/account/signup.html:10
-#: templates/account/signup.html:105
-#| msgid "Signup"
-msgid "Sign up"
-msgstr "Зареєструватись"
-
-#: djangoauth/views.py:29
+#: djangoauth/views.py:21
 msgid "Successfully login."
 msgstr "Успішно увійшли в аккаунт"
 
@@ -75,12 +48,15 @@ msgstr "Зареєструватись"
 msgid "Sign Out"
 msgstr "Вийти"
 
+#: templates/account/logout.html:9 templates/main_page.html:36
+msgid "Sign out"
+msgstr "Вийти"
+
 #: templates/account/logout.html:13
 msgid "Are you sure you want to sign out?"
 msgstr "Ви впевнені що хочете вийти?"
 
 #: templates/account/logout.html:21
-#| msgid "Sign Out"
 msgid "Log out"
 msgstr "Вийти"
 
@@ -89,20 +65,101 @@ msgstr "Вийти"
 msgid "Set Password"
 msgstr "Встановити пароль"
 
-#: templates/account/signup.html:6
-msgid "Signup"
+#: templates/account/signup.html:6 templates/account/signup.html:10
+#: templates/account/signup.html:105 templates/main_page.html:43
+msgid "Sign up"
 msgstr "Зареєструватись"
 
 #: templates/account/signup.html:109
 msgid "Already registered ?"
 msgstr "Уже зареєстровані?"
 
+#: templates/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr ""
+
+#: templates/main_page.html:27
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:483
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:490
+msgid "Order"
+msgstr "Замовлення"
+
+#: templates/main_page.html:30
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/main_page.html:33
+msgid "Contact"
+msgstr "Контакт"
+
+#: templates/main_page.html:40
+msgid "Sign in"
+msgstr "Увійти"
+
+#: templates/user_profile/update_profile.html:9
+msgid "Update profile"
+msgstr "Обновити профіль"
+
+#: templates/user_profile/update_profile.html:14
+#: templates/user_profile/user_profile.html:17
+msgid "Avatar"
+msgstr "Аватар"
+
+#: templates/user_profile/update_profile.html:19
+msgid "Update image"
+msgstr "Обновити аватар"
+
+#: templates/user_profile/update_profile.html:26
+msgid "Update phone number"
+msgstr "Обновити номер телефону"
+
+#: templates/user_profile/update_profile.html:44
+msgid "Update"
+msgstr "Обновити"
+
+#: templates/user_profile/user_profile.html:8
+msgid "User profile"
+msgstr "Профіль користувача"
+
+#: templates/user_profile/user_profile.html:12
+msgid "User"
+msgstr "Користувач"
+
+#: templates/user_profile/user_profile.html:22
+msgid "First name"
+msgstr "Імя"
+
+#: templates/user_profile/user_profile.html:26
+msgid "Last name"
+msgstr "Прізвище"
+
+#: templates/user_profile/user_profile.html:31
+msgid "Email"
+msgstr "Емейл"
+
+#: templates/user_profile/user_profile.html:35
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: templates/user_profile/user_profile.html:40
+msgid "Language"
+msgstr "Мова"
+
 #: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:130
 #: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:140
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:91
-#| msgid "Email is required"
 msgid "This field is required."
-msgstr "Емейл обовязковий до заповнення"
+msgstr "Це поле обовязкове до заповнення"
+
+#~ msgid "Dashboard"
+#~ msgstr "Панель"
+
+#~ msgid "Blog"
+#~ msgstr "Блог"
+
+#~ msgid "Signup"
+#~ msgstr "Зареєструватись"
 
 #~ msgid "Have a good day"
 #~ msgstr "Гарного дня!"
