@@ -17,9 +17,11 @@
             <input type="email" name="login" class="form-control" placeholder="Email">
             {% if form.login.errors%}
             <br>
-            <div class="alert alert-danger" role="alert">
-              <p>{% trans 'Email is required' %}</p>
-            </div>
+            {% for err in form.login.errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ err }}
+          </div>
+            {% endfor %}
             {% endif %}
           </div>
       </div>
@@ -31,9 +33,11 @@
           <input type="password" name="password" class="form-control" placeholder="Password">
           {% if form.password.errors%}
           <br>
+            {% for err in form.password.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.password.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>

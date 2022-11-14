@@ -16,9 +16,11 @@
           <input type="text" name="first_name" class="form-control" placeholder="First name">
           {% if form.first_name.errors%}
           <br>
+            {% for err in form.first_name.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.first_name.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
@@ -29,9 +31,11 @@
           <input type="text" name="last_name" class="form-control" placeholder="Last name">
           {% if form.last_name.errors%}
           <br>
+            {% for err in form.last_name.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.last_names.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
@@ -42,9 +46,11 @@
           <input type="email" name="email" class="form-control" placeholder="Email">
           {% if form.email.errors%}
           <br>
+            {% for err in form.emal.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.email.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
@@ -55,9 +61,11 @@
           <input type="text" name="phone_number" class="form-control" placeholder="Phone number">
           {% if form.phone_number.errors%}
           <br>
+            {% for err in form.phone_number.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.phone_number.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
@@ -68,9 +76,11 @@
           <input type="password" name="password1" class="form-control" placeholder="Password">
           {% if form.password1.errors%}
           <br>
+            {% for err in form.password1.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.password1.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
@@ -81,9 +91,11 @@
           <input type="password" name="password2" class="form-control" placeholder="Password(again)">
           {% if form.password2.errors%}
           <br>
+            {% for err in form.password2.errors %}
           <div class="alert alert-danger" role="alert">
-            {% trans form.password2.errors %}
+            {{ err }}
           </div>
+            {% endfor %}
           {% endif %}
         </div>
       </div>
