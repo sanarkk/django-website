@@ -15,8 +15,12 @@
   <tbody>
       <tr>
       <th scope="row">{% trans 'Avatar' %}:</th>
+        {% if user.user_profile.avatar %}
         <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
-    </tr>
+        {% else %}
+        <td><img style="border-radius: 10%;" src="{% static 'images/avatar/default.jpg' %}"></td>
+        {% endif %}
+      </tr>
     <tr>
     <tr>
       <th scope="row">{% trans 'First name' %}:</th>

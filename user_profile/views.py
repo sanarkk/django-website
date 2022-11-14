@@ -24,27 +24,8 @@ class UpdateProfile(LoginRequiredMixin, UpdateView):
     def get_form_kwargs(self):
         kwargs = super(UpdateProfile, self).get_form_kwargs()
         kwargs.update({
-            'request': self.request.user,
+            'user': self.request.user,
         })
         return kwargs
-
-    def form_valid(self, form):
-        form_up = UpdateProfileForm
-        if form_up.is_valid(form):
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            user = User()
-            user.first_name = first_name
-            user.last_name = last_name
-            user.save()
-            return user
-
-
-    # fields = [
-    #    'first_name',
-    #    'last_name',
-    #    #'avatar',
-    #    #'phone_number',
-    # ]
 
     success_url = "/"

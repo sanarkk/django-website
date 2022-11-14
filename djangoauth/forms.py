@@ -16,8 +16,6 @@ class CustomSignupForm(SignupForm):
         required=True,
     )
 
-    email = forms.EmailField()
-
     phone_number = forms.CharField(
         max_length=15,
         validators=[

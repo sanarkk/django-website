@@ -32,7 +32,6 @@ class UserProfile(models.Model):
         upload_to="avatars",
         blank=True,
         null=True,
-        default="default.jpg",
     )
 
     objects = models.Manager()

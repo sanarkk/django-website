@@ -14,8 +14,11 @@
           <div class="col">
             <label for="id_avatar">{% trans 'Avatar' %}:</label>
               <br>
-              <img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}">
-              <br>
+        {% if user.user_profile.avatar %}
+        <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
+        {% else %}
+        <td><img style="border-radius: 10%;" src="{% static 'images/avatar/default.jpg' %}"></td>
+        {% endif %}              <br>
               <br>
               <label class="form-label" for="customFile">{% trans 'Update image' %}</label>
               <input type="file" class="form-control" id="customFile" name="avatar"/>
