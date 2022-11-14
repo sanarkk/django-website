@@ -43,6 +43,11 @@
       </div>
       <br>
 
+      {% for error in form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>{% endfor %}
+
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}

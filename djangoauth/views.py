@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class MainPageView(TemplateView):
-    template_name = "main_page.html"
+    template_name = "index.html"
 
 
 class CustomSignupView(SuccessMessageMixin, SignupView):
