@@ -47,10 +47,26 @@
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="login">
+                                                                                          {% if form.login.errors%}
+          <br>
+            {% for err in form.login.errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ err }}
+          </div>
+            {% endfor %}
+          {% endif %}
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" name="password" placeholder="Password">
+                                                                                          {% if form.password.errors%}
+          <br>
+            {% for err in form.password.errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ err }}
+          </div>
+            {% endfor %}
+          {% endif %}
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -59,6 +75,11 @@
                                                     Me</label>
                                             </div>
                                         </div>
+                                        {% for err in form.non_field_errors %}
+                                                      <div class="alert alert-danger" role="alert">
+            {{ err }}
+          </div>
+                                        {% endfor %}
                                         <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
