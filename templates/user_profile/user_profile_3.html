@@ -1,0 +1,52 @@
+{% extends "main_page.html" %}
+
+{% load socialaccount %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<p>{% trans 'User profile' %}</p>
+<table style="width: auto;" class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th scope="col">{% trans 'User' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <th scope="row">{% trans 'Avatar' %}:</th>
+        {% if user.user_profile.avatar %}
+        <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
+        {% else %}
+        <td><img style="border-radius: 10%;" src="{% static 'images/avatar/default.jpg' %}"></td>
+        {% endif %}
+      </tr>
+    <tr>
+    <tr>
+      <th scope="row">{% trans 'First name' %}:</th>
+      <td>{{ user.first_name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans 'Last name' %}:</th>
+    <td>{{ user.last_name }}</td>
+
+    </tr>
+        <tr>
+      <th scope="row">{% trans 'Email' %}:</th>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans 'Phone number' %}:</th>
+    <td>{{ user.user_profile.phone_number }}</td>
+
+    </tr>
+      <tr>
+      <th scope="row">{% trans 'Language' %}:</th>
+    <td>{{ user.user_profile.language }}</td>
+
+    </tr>
+  </tbody>
+</table>
+<a href="{% url 'account_update' user.user_profile.pk %}">Update profile</a>
+<p>{{user.id}}</p>
+{% endblock %}

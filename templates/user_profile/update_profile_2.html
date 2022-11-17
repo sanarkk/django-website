@@ -1,0 +1,81 @@
+{% extends "main_page.html" %}
+
+{% load socialaccount %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<div style="width: 400px; margin-top: 250px;" class="mx-auto  border border-secondary rounded bg-light">
+  <h1 class="text-center" style="margin-top: 20px;">{% trans 'Update profile' %}</h1>
+  <form class="p-2" method="POST" action="{% url 'account_update' user.user_profile.id %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row">
+          <div class="col">
+            <label for="id_avatar">{% trans 'Avatar' %}:</label>
+              <br>
+        {% if user.user_profile.avatar %}
+        <td><img style="border-radius: 10%;" src="{{ user.user_profile.avatar.url }}"></td>
+        {% else %}
+        <td><img style="border-radius: 10%;" src="{% static 'images/avatar/default.jpg' %}"></td>
+        {% endif %}              <br>
+              <br>
+              <label class="form-label" for="customFile">{% trans 'Update image' %}</label>
+              <input type="file" class="form-control" id="customFile" name="avatar"/>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+            {% trans 'Update first name' %}:
+          <input type="text" value="{{ user.first_name }}" name="first_name" class="form-control" placeholder="First name">
+          {% if form.first_name.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {% trans form.first_name.errors %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+            {% trans 'Update last name' %}:
+          <input type="text" value="{{ user.last_name }}" name="last_name" class="form-control" placeholder="Last name">
+          {% if form.last_name.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {% trans form.last_name.errors %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+            {% trans 'Update phone number' %}:
+          <input type="text" value="{{ user.user_profile.phone_number }}" name="phone_number" class="form-control" placeholder="Phone number">
+          {% if form.phone_number.errors%}
+          <br>
+          <div class="alert alert-danger" role="alert">
+            {% trans form.phone_number.errors %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+      <div style="margin-bottom: 10px;" class="row">
+        <div class="col">
+          <input value="{% trans 'Update' %}" type="submit" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+</div>
+
+
+{% endblock %}
