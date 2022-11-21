@@ -1,5 +1,6 @@
 from braces.views import LoginRequiredMixin
 from django.views.generic import TemplateView
+from .models import Dish
 
 
 # Create your views here
@@ -11,5 +12,7 @@ class DishesView(LoginRequiredMixin, TemplateView):
     login_url = "/"
     raise_exception = True
 
-    def get(self, request, **kwargs):
-        return self.render_to_response({})
+    def get_context_data(self, **kwargs):
+        context = super(DishesView, self).get_context_data(**kwargs)
+        context['dishes'] = Dish.objects.all()
+        return context

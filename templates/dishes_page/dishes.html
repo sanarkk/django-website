@@ -1,1 +1,19 @@
+{% load static %}
 <p>DIshes</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-left: 80px;">
+        {% for dish in dishes %}
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+              <img class="card-img-top" style="width: 319px; height: 340px;" src="{{ dish.image.url }}" alt="Card image cap">
+              <div class="card-body">
+              <h5 class="card-title">{{ dish.name }}</h5>
+                  <p class="card-text">Description: {{ dish.description }}</p>
+                  <p class="card-text">Ingredients: {{ dish.ingredients }} g</p>
+                  <p class="card-text">Serving size: {{ dish.serving_size }} g</p>
+                  <p class="card-text">Price: {{ dish.price }} UAH</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>      </div>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
