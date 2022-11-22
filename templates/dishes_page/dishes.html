@@ -1,9 +1,21 @@
 {% load static %}
-<p>DIshes</p>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-left: 80px;">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{% static 'css/dishes.css' %}">
+<div class="bg-cd">
+<div class="row row-cols-1 row-cols-md-4 g-4" style="margin-left: 80px;">
+  <div style="right: 90px;" class="col-md-2">
+    <a class="dropdown-item" href="/user_profile/{{ user.id }}">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                            <a class="dropdown-item" href="{% url 'main_page' %}">
+                                                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Main page
+                            </a>
+                        </div>
         {% for dish in dishes %}
-      <div class="col">
+      <div class="col" style="right: 90px;">
         <div class="card" style="width: 20rem;">
               <img class="card-img-top" style="width: 319px; height: 340px;" src="{{ dish.image.url }}" alt="Card image cap">
               <div class="card-body">
@@ -17,3 +29,4 @@
       </div>
         {% endfor %}
     </div>
+  </div>
