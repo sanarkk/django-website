@@ -1,0 +1,50 @@
+[
+  {
+    "model": "dishes_page.Dish",
+    "pk": 1,
+    "fields": {
+      "name": "Dish 1",
+      "description": "SOme description for dish 1.",
+      "ingredients": "Ing1 Ing2 Ing3 Ing4",
+      "serving_size": "300",
+      "price": "75",
+      "image": "/dishes/fixtures/dish1.jpeg"
+    }
+  },
+  {
+    "model": "dishes_page.Dish",
+    "pk": 2,
+    "fields": {
+      "name": "Dish 2",
+      "description": "SOme description for dish 2.",
+      "ingredients": "Ing1 Ing2 Ing3 Ing4",
+      "serving_size": "250",
+      "price": "60",
+      "image": "/dishes/fixtures/dish2.jpeg"
+    }
+  },
+    {
+    "model": "dishes_page.Dish",
+    "pk": 3,
+    "fields": {
+      "name": "Dish 3",
+      "description": "SOme description for dish 3.",
+      "ingredients": "Ing1 Ing2 Ing3 Ing4",
+      "serving_size": "300",
+      "price": "80",
+      "image": "/dishes/fixtures/dish3.jpeg"
+    }
+  },
+  {
+    "model": "dishes_page.Dish",
+    "pk": 4,
+    "fields": {
+      "name": "Dish 4",
+      "description": "SOme description for dish 4.",
+      "ingredients": "Ing1 Ing2 Ing3 Ing4",
+      "serving_size": "250",
+      "price": "65",
+      "image": "/dishes/fixtures/dish4.jpeg"
+    }
+  }
+]
