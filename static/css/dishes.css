@@ -1,0 +1,29 @@
+body{
+background-color: white;
+}
+
+.bg-cd{
+  padding: 1%;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.custom-nav{
+color: white;
+}
+
+footer.sticky-footer {
+  padding: 2rem 0;
+  flex-shrink: 0;
+}
+
+footer.sticky-footer .copyright {
+  line-height: 1;
+  font-size: 0.8rem;
+}
+
+body.sidebar-toggled footer.sticky-footer {
+  width: 100%;
+}
