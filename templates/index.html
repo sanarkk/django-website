@@ -122,11 +122,14 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="{% url 'account_login' %}">Login</a>
-                        <a class="collapse-item" href="{% url 'account_signup' %}">Register</a>
-                        <a class="collapse-item" href="{% url 'user_profile' user.user_profile.pk %}">Profile</a>
+                        <h6 class="collapse-header">Pages:</h6>
+                        {% if user.is_authenticated %}
+                                                <a class="collapse-item" href="{% url 'user_profile' user.user_profile.pk %}">Profile</a>
                         <a class="collapse-item" href="{% url 'dishes' %}">Dishes</a>
+                        {% else %}
+                                                <a class="collapse-item" href="{% url 'account_login' %}">Login</a>
+                        <a class="collapse-item" href="{% url 'account_signup' %}">Register</a>
+                        {% endif %}
                         <div class="collapse-divider"></div>
                         <!-- <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
