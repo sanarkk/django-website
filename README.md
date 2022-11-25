@@ -9,6 +9,6 @@ This website developed for IT-Company which uses Caretaking. With this website w
 
 - pip install -r requirements.txt
 - ./manage.py migrate
-- ./manage.py loaddata fixtures.json
+- ./manage.py loaddata dish_fixture.json
 
 <sup>created by sanarkk</sup>
