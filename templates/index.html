@@ -126,6 +126,7 @@
                         {% if user.is_authenticated %}
                                                 <a class="collapse-item" href="{% url 'user_profile' user.user_profile.pk %}">Profile</a>
                         <a class="collapse-item" href="{% url 'dishes' %}">Dishes</a>
+                        <a class="collapse-item" href="{% url 'make_order' %}">Order food</a>
                         {% else %}
                                                 <a class="collapse-item" href="{% url 'account_login' %}">Login</a>
                         <a class="collapse-item" href="{% url 'account_signup' %}">Register</a>

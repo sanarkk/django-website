@@ -1,0 +1,62 @@
+{% load static %}
+{% load i18n %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="{% static 'css/user_profile.css' %}" rel="stylesheet" type="text/css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div style="margin-left: 60px;" class="container emp-profile">
+                    <br>
+                    <br>
+                <div class="row" >
+                    <div class="col-md-6" style="left: 20px;">
+                        <div class="profile-head">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <p class="nav-link active" data-toggle="tab">Order</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                                        <div class="bg-cd">
+
+
+    <form class="p-2" method="POST" action="{% url 'make_order' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="row row-cols-1 row-cols-md-5 g-2" style="margin-left: -40px;">
+                {% for dish in dishes %}
+      <div class="col">
+        <div class="card" style="width: 14rem;">
+              <img class="card-img-top" style="width: 220px; height: 240px;" src="{{ dish.image.url }}" alt="Card image cap">
+              <div class="card-body">
+              <h5 class="card-title">{{ dish.name }}</h5>
+                  <p class="card-text">Description: {{ dish.description }}</p>
+                  <p class="card-text">Ingredients: {{ dish.ingredients }} g</p>
+                  <p class="card-text">Serving size: {{ dish.serving_size }} g</p>
+                  <p class="card-text">Price: {{ dish.price }} UAH</p>
+                <input type="checkbox" class="btn btn-primary" id="{{ dish.id }}">Add to cart      </div>
+        </div>
+      </div>
+        {% endfor %}
+    <input type="submit">
+</div>
+    </form>
+    </div>
+  </div>
+
+<div class=" emp-profile" style="width: 390px; left: 1480px; top: 0px; height: 900px; position: absolute;">
+    <h1>Checkout:</h1>
+    {% for order in orders %}
+        {% if user.id == order.user.id %}
+        <p>{{ order.dish.name }}</p>
+        <p>{{ order.dish.price }}</p>
+        {% else %}
+        <p></p>
+        {% endif %}
+    {% endfor %}
+</div>
+
+</div>
