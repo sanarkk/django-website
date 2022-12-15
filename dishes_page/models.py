@@ -2,6 +2,11 @@ from django.db import models
 from django_resized import ResizedImageField
 
 
+order_status_choices = (
+    ("1", "Pending"),
+    ("2", "In cart")
+)
+
 # Create your models here.
 class Dish(models.Model):
     name = models.CharField(max_length=40)
@@ -20,3 +25,4 @@ class Dish(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+

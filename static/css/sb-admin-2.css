@@ -576,16 +576,16 @@ pre code {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: 940px;
+    max-width: 1330px;
   }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -13.8rem;
+  margin-right: -0.8000000000000007rem;
   margin-left: 2.3rem;
 }
 
@@ -4526,6 +4526,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  width: 220px;
 }
 
 .card-title {
