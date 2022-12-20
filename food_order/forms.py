@@ -3,8 +3,9 @@ from .models import Checkout
 
 
 class CheckoutForm(forms.ModelForm):
-    dish = forms.BooleanField()
+    dishes = forms.BooleanField()
 
     class Meta:
         model = Checkout
-        fields = ['dish']
+        fields = '__all__'
+
