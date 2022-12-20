@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Checkout(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
-    dish = models.ForeignKey(Dish, on_delete=models.CASCADE ,related_name="dish")
-
+    dishes = models.BooleanField(null=True)
     order_date = models.DateTimeField( auto_now_add=True)
 
     def __str__(self):

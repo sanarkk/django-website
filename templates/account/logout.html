@@ -1,26 +1,32 @@
-{% extends "main_page.html" %}
-
-{% load i18n %}
-
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
-
-{% block content %}
- <div style="width: 400px; margin-top: 250px;" class="mx-auto border border-secondary rounded bg-light">
-  <h1 class="text-center" style="margin-top: 20px;">{% trans 'Sign out' %}</h1>
+{% extends "main_page.html" %} {% load i18n %} {% block head_title %}{% trans
+"Sign Out" %}{% endblock %} {% block content %}
+<div
+  style="width: 400px; margin-top: 250px"
+  class="mx-auto border border-secondary rounded bg-light"
+>
+  <h1 class="text-center" style="margin-top: 20px">{% trans 'Sign out' %}</h1>
   <form class="p-2" method="POST" action="{% url 'account_logout' %}">
-      {% csrf_token %}
+    {% csrf_token %}
 
-      <p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
+    <p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
 
-      {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
+    {% if redirect_field_value %}
+    <input
+      type="hidden"
+      name="{{ redirect_field_name }}"
+      value="{{ redirect_field_value }}"
+    />
+    {% endif %}
 
-      <div class="row">
-        <div class="col">
-          <input value="{% trans 'Log out' %}" type="submit" class="btn btn-primary">
-        </div>
+    <div class="row">
+      <div class="col">
+        <input
+          value="{% trans 'Log out' %}"
+          type="submit"
+          class="btn btn-primary"
+        />
       </div>
-    </form>
+    </div>
+  </form>
 </div>
 {% endblock %}
